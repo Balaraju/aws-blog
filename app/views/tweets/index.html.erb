@@ -1,0 +1,26 @@
+<h1>Tweets</h1>
+<p class = "text-right"><%= link_to 'New Tweet', new_tweet_path, :class => "btn btn-info" %></p>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Content</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tweets.each do |tweet| %>
+      <tr>
+        <td><%= link_to tweet.title, tweet %></td>
+        <td><%= tweet.content %></td>
+        <td><%= link_to 'Edit', edit_tweet_path(tweet), :class => "btn btn-info" %>
+        <%= link_to 'Destroy', tweet, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-danger" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+
